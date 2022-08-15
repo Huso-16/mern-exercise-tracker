@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const mongoose = require('mongoose');
 
 require('dotenv').config();
 
@@ -10,7 +11,14 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+// Connection to DB
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri, {useNewUrlParser: true});
 
+const connection = mongoose.connection;
+connection.once('open', () => {
+    console.log("MongoDB database connection established successfully");
+});
 
 // start server
 app.listen(port, ()=>{
