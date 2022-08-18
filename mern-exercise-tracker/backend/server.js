@@ -1,26 +1,26 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-
-require('dotenv').config();
+import 'dotenv/config';
+import express, {json} from 'express';
+import cors from 'cors';
+import pkg from 'mongoose';
+const {connect, connection: _connection} = pkg;
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 // middleware
 app.use(cors());
-app.use(express.json());
+app.use(json());
 
 // Connection to DB
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, {useNewUrlParser: true});
+connect(uri, {useNewUrlParser: true});
 
-const connection = mongoose.connection;
+const connection = _connection;
 connection.once('open', () => {
   console.log('MongoDB database connection established successfully');
 });
 
 // start server
-app.listen(port, ()=>{
+app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
