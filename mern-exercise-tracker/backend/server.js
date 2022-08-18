@@ -3,7 +3,7 @@ import express, {json} from 'express';
 import cors from 'cors';
 import pkg from 'mongoose';
 import ExercisesRouter from './routes/exercises';
-import usersRouter from './routes/users';
+import UsersRouter from './routes/users';
 const {connect, connection: _connection} = pkg;
 
 const app = express();
@@ -23,7 +23,7 @@ connection.once('open', () => {
 });
 
 // Enable/Register routes
-app.use('/users', usersRouter);
+app.use('/users', UsersRouter);
 app.use('/exercises', ExercisesRouter);
 
 // start server
