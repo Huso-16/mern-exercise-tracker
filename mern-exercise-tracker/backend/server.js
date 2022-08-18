@@ -2,6 +2,8 @@ import 'dotenv/config';
 import express, {json} from 'express';
 import cors from 'cors';
 import pkg from 'mongoose';
+import ExercisesRouter from './routes/exercises';
+import UsersRouter from './routes/users';
 const {connect, connection: _connection} = pkg;
 
 const app = express();
@@ -19,6 +21,10 @@ const connection = _connection;
 connection.once('open', () => {
   console.log('MongoDB database connection established successfully');
 });
+
+// Enable/Register routes
+app.use('/users', UsersRouter);
+app.use('/exercises', ExercisesRouter);
 
 // start server
 app.listen(port, () => {
