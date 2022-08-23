@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/navbar.component';
 import ExerciseList from './components/exercises-list.component';
@@ -13,8 +13,8 @@ import CreateUser from './components/create-user.component';
  */
 export default class App extends React.Component {
   /**
-   * Starts rendering the app
-   * @return {ReactNode} main app component
+   * Starting point of the app
+   * @return {React.ReactNode} main app component
    */
   render() {
     return (
