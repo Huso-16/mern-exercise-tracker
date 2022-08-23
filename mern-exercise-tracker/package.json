@@ -22,9 +22,11 @@
     "start-dev-server": "nodemon --experimental-modules --es-module-specifier-resolution=node backend/server.js"
   },
   "devDependencies": {
-    "nodemon": "^2.0.19",
+    "bootstrap": "^5.2.0",
     "eslint": "^8.22.0",
     "eslint-config-google": "^0.14.0",
-    "eslint-plugin-react": "^7.30.1"
+    "eslint-plugin-react": "^7.30.1",
+    "nodemon": "^2.0.19",
+    "react-router-dom": "^6.3.0"
   }
 }
