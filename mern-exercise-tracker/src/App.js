@@ -1,7 +1,7 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/navbar.component';
 import ExerciseList from './components/exercises-list.component';
 import CreateExercise from './components/create-exercise.component';
@@ -19,14 +19,16 @@ export default class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <Navbar />
-        <br />
-        <Routes>
-          <Route exact path="/" element={<ExerciseList />} />
-          <Route path="/edit/:id" element={<EditExercise />} />
-          <Route path="/create" element={<CreateExercise />} />
-          <Route path="/user" element={<CreateUser />} />
-        </Routes>
+        <div className='container'>
+          <Navbar />
+          <br />
+          <Routes>
+            <Route exact path="/" element={<ExerciseList />} />
+            <Route path="/edit/:id" element={<EditExercise />} />
+            <Route path="/create" element={<CreateExercise />} />
+            <Route path="/user" element={<CreateUser />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     );
   }
