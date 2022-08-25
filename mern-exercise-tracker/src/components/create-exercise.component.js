@@ -28,6 +28,16 @@ export default class CreateExercise extends React.Component {
   }
 
   /**
+   * Set inital local state
+   */
+  componentDidMount() {
+    this.setState({
+      users: ['test user'],
+      username: 'test username',
+    });
+  }
+
+  /**
    * Update state of username
    * @param {Element} e
    */
