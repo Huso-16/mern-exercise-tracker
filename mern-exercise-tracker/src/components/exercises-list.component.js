@@ -3,8 +3,13 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-
-// functional react component
+/**
+ * Functional react component,
+ * responsible to show a row of data(exercise)
+ *
+ * @param {*} props local variable
+ * @return {undefined}
+ */
 function Exercise(props) {
   return (
     <tr>
@@ -24,6 +29,7 @@ function Exercise(props) {
 
 Exercise.propTypes = {
   exercise: PropTypes.any,
+  deleteExercise: PropTypes.func,
 };
 
 /**
@@ -43,6 +49,11 @@ export default class ExerciseList extends React.Component {
     this.state = {exercises: []};
   }
 
+  /**
+   * Override component lifecycle method,
+   * fetches data from the database
+   * and saves data in the local state
+   */
   componentDidMount() {
     axios.get('http://localhost:5000/exercises/')
         .then((response) => {
@@ -73,6 +84,10 @@ export default class ExerciseList extends React.Component {
   }
 
 
+  /**
+   * Creates rows of the data list
+   * @return {React.ReactNode}
+   */
   exerciseList() {
     return this.state.exercises.map((currentExercise) => {
       return <Exercise
@@ -81,6 +96,7 @@ export default class ExerciseList extends React.Component {
         key={currentExercise._id} />;
     });
   }
+
   /**
     * Component to display list of all exercises.
     * @return {React.ReactNode} component responsible to show exercise
