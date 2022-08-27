@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 /**
  * Component to Add user
@@ -43,6 +44,13 @@ export default class CreateUser extends React.Component {
 
     // TODO: submit the user details to the database
     console.log(user);
+
+    // Send user data to backend
+    axios.post('http://localhost:5000/users/add', user)
+        .then((res) => {
+          alert(res.data);
+          console.log(res.data);
+        }).catch((error) => console.error(error));
 
     // clear the form on form submission
     this.setState({username: ''});
