@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-
+import PropTypes from 'prop-types';
 
 
 // functional react component
@@ -22,7 +22,9 @@ function Exercise(props) {
   );
 }
 
-
+Exercise.propTypes = {
+  exercise: PropTypes.any,
+};
 
 /**
  * Component to show list of all exercise
